@@ -28,6 +28,8 @@ RUN apt-get -qq update && \
       lib32ncurses5 \
       lib32z1 \
       unzip \
+      build-essential \
+      iputils-ping \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN rm -f /etc/ssl/certs/java/cacerts; \
@@ -46,3 +48,13 @@ RUN mkdir -p /root/.android && \
   touch /root/.android/repositories.cfg && \
   ${ANDROID_HOME}/tools/bin/sdkmanager --update && \
   (while [ 1 ]; do sleep 5; echo y; done) | ${ANDROID_HOME}/tools/bin/sdkmanager --package_file=/sdk/packages.txt
+
+ENV VERSION_ANDROID_NDK "android-ndk-r14b"
+
+ENV ANDROID_NDK_HOME "/sdk/${VERSION_ANDROID_NDK}"
+
+ADD https://dl.google.com/android/repository/${VERSION_ANDROID_NDK}-linux-x86_64.zip /ndk.zip
+RUN unzip /ndk.zip -d /sdk && \
+    rm -v /ndk.zip
+
+RUN /sdk/tools/bin/sdkmanager "cmake;3.6.3155560"
