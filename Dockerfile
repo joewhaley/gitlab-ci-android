@@ -20,6 +20,7 @@ RUN apt-get -qq update && \
       tar \
       wget \
       tzdata \
+      adb \
       html2text \
       openjdk-8-jdk \
       libc6-i386 \
