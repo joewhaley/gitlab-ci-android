@@ -17,6 +17,9 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get -qq update && \
     apt-get install -qqy --no-install-recommends \
       curl \
+      tar \
+      wget \
+      tzdata \
       html2text \
       openjdk-8-jdk \
       libc6-i386 \
