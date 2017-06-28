@@ -58,4 +58,4 @@ ADD https://dl.google.com/android/repository/${VERSION_ANDROID_NDK}-linux-x86_64
 RUN unzip /ndk.zip -d /sdk && \
     rm -v /ndk.zip
 
-RUN /sdk/tools/bin/sdkmanager "cmake;3.6.3155560"
+RUN /sdk/tools/bin/sdkmanager "cmake;3.6.4111459"
