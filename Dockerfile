@@ -21,6 +21,7 @@ RUN apt-get -qq update && \
       wget \
       tzdata \
       rsync \
+      git \
       adb \
       html2text \
       openjdk-8-jdk \
